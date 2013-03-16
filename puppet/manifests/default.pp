@@ -5,7 +5,7 @@ package { ["vim", "git", "ack-grep"]:
 }
 
 # Install the programming languages I care about
-package { ["perl", "python", "ruby", "php5"]:
+package { ["perl", "python", "ruby", "php5", "nodejs", "golang"]:
   ensure => present,
   require => Exec['apt-get update'],
 }
