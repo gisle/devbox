@@ -1,11 +1,17 @@
 # Install the basic tools I require to edit files
-package { ["vim", "git"]:
+package { ["vim", "git", "ack-grep"]:
   ensure => present,
   require => Exec['apt-get update'],
 }
 
 # Install the programming languages I care about
 package { ["perl", "python", "ruby", "php5"]:
+  ensure => present,
+  require => Exec['apt-get update'],
+}
+
+# Perl libraries
+package { ["libwww-perl","libdata-dump-perl"]:
   ensure => present,
   require => Exec['apt-get update'],
 }
