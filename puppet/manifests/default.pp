@@ -16,6 +16,12 @@ package { ["libwww-perl","libdata-dump-perl"]:
   require => Exec['apt-get update'],
 }
 
+# Extra Python stuff
+package { ["ipython", "ipython-doc", "python-django", "python-sphinx"]:
+  ensure => present,
+  require => Exec['apt-get update'],
+}
+
 # Install some databases
 package { ["sqlite3"]:
   ensure => present,
