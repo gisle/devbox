@@ -5,7 +5,7 @@ package { ["vim", "git", "ack-grep"]:
 }
 
 # Install the programming languages I care about
-package { ["perl", "python", "ruby", "php5", "nodejs", "golang"]:
+package { ["perl", "python", "ruby", "nodejs", "golang"]:
   ensure => present,
   require => Exec['apt-get update'],
 }
@@ -18,6 +18,12 @@ package { ["libwww-perl","libdata-dump-perl"]:
 
 # Extra Python stuff
 package { ["ipython", "ipython-doc", "python-django", "python-sphinx"]:
+  ensure => present,
+  require => Exec['apt-get update'],
+}
+
+# PHP stuff
+package { ["php5-cli", "libapache2-mod-php5", "php5-sqlite", "php5-curl", "php-pear"]:
   ensure => present,
   require => Exec['apt-get update'],
 }
