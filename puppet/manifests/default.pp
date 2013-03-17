@@ -28,6 +28,12 @@ package { ["php5-cli", "libapache2-mod-php5", "php5-sqlite", "php5-curl", "php-p
   require => Exec['apt-get update'],
 }
 
+file { "/var/www/phpinfo.php":
+  ensure => present,
+  content => "<?php phpinfo();\n",
+  require => Package["libapache2-mod-php5"],
+}
+
 # Install some databases
 package { ["sqlite3"]:
   ensure => present,
