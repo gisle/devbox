@@ -51,6 +51,14 @@ service { "apache2":
   require => Package["apache2"],
 }
 
+file { "/etc/apache2/sites-available/default":
+  ensure => "present",
+  source => "/vagrant/apache-default",
+  notify => Service["apache2"],
+  owner => "root",
+  group => "root",
+}
+
 # Keep the apt database current; but to run too often.  It's a bit costly.
 exec { 'apt-get update':
   command => '/usr/bin/apt-get update',
